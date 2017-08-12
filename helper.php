@@ -36,7 +36,7 @@ class ModSiteMembersHelper
 	    $whereclause = "WHERE g.title LIKE '%".$membertype."%'";
 	    if (substr($membertype,-1) == 's') $membertype= substr($membertype,0,strlen($membertype)-1); // display singular, always
         }
-        $query = "SELECT count(*) FROM hme3_users u JOIN hme3_user_usergroup_map m ON u.id=m.user_id JOIN hme3_usergroups g on m.group_id=g.id ".$whereclause;
+        $query = "SELECT count(*) FROM #__users u JOIN #__user_usergroup_map m ON u.id=m.user_id JOIN #__usergroups g on m.group_id=g.id ".$whereclause;
         // Prepare the query
         $db->setQuery($query);
         // Load the row.
