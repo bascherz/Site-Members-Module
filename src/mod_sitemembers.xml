@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.1.0" client="site" method="upgrade">
+    <name>Site Members</name>
+    <author>Bruce Scherzinger</author>
+    <version>1.0</version>
+    <description>A simple site member count module.</description>
+    <files>
+        <filename>mod_sitemembers.xml</filename>
+        <filename module="mod_sitemembers">mod_sitemembers.php</filename>
+        <filename>index.html</filename>
+        <filename>helper.php</filename>
+        <filename>tmpl/default.php</filename>
+        <filename>tmpl/index.html</filename>
+    </files>
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field
+                    name="members"
+				    description="Select the users you wish to count. Select Guest for all users."
+                    type="sql"
+                    default="Registered"
+                    label="Which users?"
+                    query="SELECT title AS value, title FROM #__usergroups" />
+            </fieldset>
+	    </fields>
+    </config>
+    <install>
+    </install>
+    <uninstall>
+    </uninstall>
+    <updateservers>
+        <server type="extension" name="Site Members Module Update Site">https://raw.githubusercontent.com/bascherz/Site-Members-Module/master/manifest.xml</server>
+    </updateservers>
+</extension>
